@@ -1,7 +1,7 @@
-torch
-torchvision
-numpy
-matplotlib
-tqdm
-onnxruntime
-notebook
+torch==2.1.0
+torchaudio==2.1.0
+numpy==1.24.3
+matplotlib==3.7.1
+tqdm==4.65.0
+onnxruntime==1.15.0
+notebook==6.5.4

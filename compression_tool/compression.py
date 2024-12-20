@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from torch.nn.utils import prune
 from copy import deepcopy
+torch.backends.quantized.engine = 'qnnpack'
 
 def apply_pruning(model, amount=0.3):
     """
@@ -28,7 +29,7 @@ def apply_quantization(model):
     # Dynamic quantization is more widely supported than static quantization
     quantized_model = torch.quantization.quantize_dynamic(
         model,
-        {torch.nn.Linear, torch.nn.Conv2d},  # Quantize both linear and conv layers
+        {torch.nn.Linear, torch.nn.Conv2d},  
         dtype=torch.qint8
     )
     return quantized_model
